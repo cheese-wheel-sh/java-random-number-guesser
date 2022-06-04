@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Random rand = new Random();
         Scanner sc = new Scanner(System.in);
         boolean numberGuessedCorrectly = false;
-        int numberToGuess = createNumberToGuess();
+        int numberToGuess = createNumberToGuess(rand);
         int guessTries = 0;
 
         System.out.println("""
@@ -30,9 +31,7 @@ public class Main {
         System.out.println("The number to guess was " + numberToGuess + "!\nCongrats on the win in " + guessTries + " tries!");
     }
 
-    private static int createNumberToGuess() {
-        Random rand = new Random();
-
+    private static int createNumberToGuess(Random rand) {
         return rand.nextInt(100);
     }
 
