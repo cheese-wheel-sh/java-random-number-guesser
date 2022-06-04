@@ -25,6 +25,7 @@ public class Main {
                 case "correct" -> numberGuessedCorrectly = true;
                 case "lower" -> System.out.println("The number to guess is lower...");
                 case "higher" -> System.out.println("The number to guess is higher...");
+                default -> System.out.println("Error! Couldn't check input!");
             }
         }
 
