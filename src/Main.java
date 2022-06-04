@@ -9,7 +9,10 @@ public class Main {
         int numberToGuess = createNumberToGuess();
         int guessTries = 0;
 
-        System.out.println("Welcome to the random number guesser minigame.\n" + "You need to guess a number between 0 and 100,\n" + "while trying to use the lowest amount of guesses overall.");
+        System.out.println("""
+                Welcome to the random number guesser minigame.
+                You need to guess a number between 0 and 100,
+                while trying to use the lowest amount of guesses overall.""");
 
         while (!numberGuessedCorrectly) {
             System.out.println("Guess the number:");
