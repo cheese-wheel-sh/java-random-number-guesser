@@ -18,15 +18,9 @@ public class Main {
             guessTries += 1;
 
             switch (guessCheck) {
-                case "correct":
-                    numberGuessedCorrectly = true;
-                    break;
-                case "lower":
-                    System.out.println("The number to guess is lower...");
-                    break;
-                case "higher":
-                    System.out.println("The number to guess is higher...");
-                    break;
+                case "correct" -> numberGuessedCorrectly = true;
+                case "lower" -> System.out.println("The number to guess is lower...");
+                case "higher" -> System.out.println("The number to guess is higher...");
             }
         }
 
