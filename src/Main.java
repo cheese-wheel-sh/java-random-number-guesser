@@ -6,30 +6,44 @@ public class Main {
     public static void main(String[] args) {
         Random rand = new Random();
         Scanner sc = new Scanner(System.in);
-        boolean numberGuessedCorrectly = false;
-        int numberToGuess = createNumberToGuess(rand);
-        int guessTries = 0;
+        boolean isPlaying = true;
 
-        System.out.println("""
-                Welcome to the random number guesser minigame.
-                You need to guess a number between 0 and 100,
-                while trying to use the lowest amount of guesses overall.""");
+        while (Boolean.TRUE.equals(isPlaying)) {
+            boolean numberGuessedCorrectly = false;
+            int numberToGuess = createNumberToGuess(rand);
+            int guessTries = 0;
 
-        while (!numberGuessedCorrectly) {
-            System.out.print("Guess the number: ");
-            Integer guessedNumber = sc.nextInt();
-            String guessCheck = numberGuessChecker(guessedNumber, numberToGuess);
-            guessTries += 1;
+            System.out.println("""
+                    Welcome to the random number guesser minigame.
+                    You need to guess a number between 0 and 100,
+                    while trying to use the lowest amount of guesses overall.""");
 
-            switch (guessCheck) {
-                case "correct" -> numberGuessedCorrectly = true;
-                case "lower" -> System.out.println("The number to guess is lower...");
-                case "higher" -> System.out.println("The number to guess is higher...");
-                default -> System.out.println("Error! Couldn't check input!");
+            while (!numberGuessedCorrectly) {
+                System.out.print("Guess the number: ");
+                Integer guessedNumber = sc.nextInt();
+                String guessCheck = numberGuessChecker(guessedNumber, numberToGuess);
+                guessTries += 1;
+
+                switch (guessCheck) {
+                    case "correct" -> numberGuessedCorrectly = true;
+                    case "lower" -> System.out.println("The number to guess is lower...");
+                    case "higher" -> System.out.println("The number to guess is higher...");
+                    default -> System.out.println("Error! Couldn't check input!");
+                }
+            }
+
+            System.out.println("The number to guess was " + numberToGuess + "!\nCongrats on the win in " + guessTries + " tries!");
+
+            System.out.println("Wanna play again?");
+            System.out.print("Yes or no?: ");
+            String answer = sc.next().toLowerCase();
+
+            if ("no".equals(answer)) {
+                isPlaying = false;
             }
         }
 
-        System.out.println("The number to guess was " + numberToGuess + "!\nCongrats on the win in " + guessTries + " tries!");
+        System.out.println("Thanks for playing!");
     }
 
     private static int createNumberToGuess(Random rand) {
