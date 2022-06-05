@@ -16,7 +16,7 @@ public class Main {
                 while trying to use the lowest amount of guesses overall.""");
 
         while (!numberGuessedCorrectly) {
-            System.out.println("Guess the number:");
+            System.out.print("Guess the number: ");
             Integer guessedNumber = sc.nextInt();
             String guessCheck = numberGuessChecker(guessedNumber, numberToGuess);
             guessTries += 1;
